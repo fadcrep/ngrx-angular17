@@ -1,13 +1,47 @@
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, RouterLink],
+  template: `
+    <header>
+      <nav>
+        <a routerLink="todos">Todos</a>
+      </nav>
+    </header>
+    <main>
+      <router-outlet />
+    </main>
+    <footer>some footer</footer>
+  `,
+  styles: [
+    `
+      :host {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      header {
+        background: #eee;
+        padding: 1rem;
+      }
+      header nav {
+        display: flex;
+        gap: 1rem;
+      }
+      main {
+        flex-grow: 1;
+        padding: 1rem;
+      }
+      footer {
+        background: #eee;
+        padding: 1rem;
+      }
+    `,
+  ],
 })
-export class AppComponent {
-  title = 'bonjourAngular';
-}
+export class AppComponent {}
