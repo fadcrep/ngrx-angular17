@@ -1,3 +1,4 @@
-##Plan
+## Description
 
-1- Control flow  : Done
+Use ngrx in angular 17 project
+
